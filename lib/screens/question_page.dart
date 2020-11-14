@@ -19,24 +19,35 @@ class _QuestionPageState extends State<QuestionPage> {
         children: <Widget>[
           //現在時刻表示
           //問題
-          GestureDetector(
-            onTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (content) => TimerPage(),
-                ),
-              );
-            },
-            child: Container(
-              child: Center(
-                child: Text(
-                  '問題画面からタイマー画面へ',
-                ),
-              ),
-            ),
-          )
+          TransitionButton()
         ],
+      ),
+    );
+  }
+}
+
+class TransitionButton extends StatelessWidget {
+  const TransitionButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (content) => TimerPage(),
+          ),
+        );
+      },
+      child: Container(
+        child: Center(
+          child: Text(
+            '問題画面からタイマー画面へ',
+          ),
+        ),
       ),
     );
   }
