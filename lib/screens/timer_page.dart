@@ -10,10 +10,30 @@ class TimerPage extends StatefulWidget {
 class _TimerPageState extends State<TimerPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        'Timer',
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Morning Study'),
+      ),
+      body: Column(
+        children: <Widget>[
+          //文章(例：「勉強開始時間まで」，「学習タイム」)
+          //タイマー
+          //スタートボタン
+          Container(
+            child: Center(
+              child: Text(
+                'タイマー画面',
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+// Container(
+// child: Text(
+// 'Timer',
+// ),
+// )
