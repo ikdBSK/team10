@@ -31,9 +31,3 @@ class _TimerPageState extends State<TimerPage> {
     );
   }
 }
-
-// Container(
-// child: Text(
-// 'Timer',
-// ),
-// )

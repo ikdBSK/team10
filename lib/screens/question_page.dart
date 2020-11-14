@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'timer_page.dart';
+import 'package:app_team10/components/transition_button.dart';
+import 'package:app_team10/widget/clock_widget.dart';
 
 class QuestionPage extends StatefulWidget {
   @override
@@ -9,6 +11,9 @@ class QuestionPage extends StatefulWidget {
 }
 
 class _QuestionPageState extends State<QuestionPage> {
+
+  DateTime dateTime = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,37 +23,28 @@ class _QuestionPageState extends State<QuestionPage> {
       body: Column(
         children: <Widget>[
           //現在時刻表示
+          Container(
+            child: Center(
+              child: ClockWidget(),
+            ),
+          ),
           //問題
-          TransitionButton()
+
+          //ボタン
+          TransitionButton(
+            buttonTitle: 'STOP',
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (content) => TimerPage(),
+                ),
+              );
+            },
+          ),
         ],
       ),
     );
   }
 }
 
-class TransitionButton extends StatelessWidget {
-  const TransitionButton({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (content) => TimerPage(),
-          ),
-        );
-      },
-      child: Container(
-        child: Center(
-          child: Text(
-            '問題画面からタイマー画面へ',
-          ),
-        ),
-      ),
-    );
-  }
-}
