@@ -1,0 +1,1 @@
+int studyTimeMin = 30;

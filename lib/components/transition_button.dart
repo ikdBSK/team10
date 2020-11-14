@@ -32,8 +32,3 @@ class TransitionButton extends StatelessWidget {
     );
   }
 }
-
-
-
-
-// '問題画面からタイマー画面へ'
