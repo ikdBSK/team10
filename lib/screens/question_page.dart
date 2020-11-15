@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'timer_page.dart';
+import 'calendar_page.dart';
 import 'package:app_team10/components/transition_button.dart';
 import 'package:app_team10/widget/clock_widget.dart';
 
@@ -37,7 +38,7 @@ class _QuestionPageState extends State<QuestionPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (content) => TimerPage(),
+                  builder: (content) => CalendarPage(),
                 ),
               );
             },
