@@ -1,6 +1,7 @@
 //設定画面
 import 'package:flutter/material.dart';
 import 'package:app_team10/variable.dart';
+import 'package:app_team10/constants.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -27,13 +28,6 @@ class _SettingPageState extends State<SettingPage> {
 
   final numberController = TextEditingController();
 
-  // ignore: missing_return
-  Function _setStudyTime(int studyTime){
-    setState(){
-      studyTimeMin = studyTime;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,33 +38,58 @@ class _SettingPageState extends State<SettingPage> {
         children: <Widget>[
           //TODO: 時間設定の実装
           Expanded(
-            child: Text('起床時間'),
+            child: Text(
+              '起床時間',
+              style: kTextStyle,
+            ),
           ),
-          Center(child:Text("$awakeTime")),
-          RaisedButton(onPressed: () => _selectAwakeTime(context), child: Text('時間選択'),),
+          Expanded(
+            child: Center(
+              child:Text(
+                "$awakeTime"
+              ),
+            ),
+          ),
+
+          RaisedButton(
+              onPressed: () => _selectAwakeTime(context), child: Text('時間選択'),
+          ),
 
           Expanded(
-            child: Text('勉強開始時間'),
+            child: Text(
+              '勉強開始時間',
+              style: kTextStyle,
+            ),
           ),
-          Center(child:Text("$startTime")),
+          Expanded(
+            child: Center(
+              child:Text(
+                "$startTime"
+              ),
+            ),
+          ),
+
           RaisedButton(onPressed: () => _selectStartTime(context), child: Text('時間選択'),),
 
           Expanded(
-            child: TextField(
-              controller: numberController,
-              decoration: new InputDecoration(labelText: "勉強時間"),
-              keyboardType: TextInputType.number,
-              onChanged: (Text){
-                setState(() {
-                  studyTimeMin = int.parse(Text);
-                });
-              },
+            child: Center(
+              child: TextField(
+                controller: numberController,
+                decoration: new InputDecoration(labelText: "勉強時間"),
+                keyboardType: TextInputType.number,
+                onChanged: (Text){
+                  setState(() {
+                    studyTimeMin = int.parse(Text);
+                  });
+                },
+              ),
             ),
           ),
 
           Expanded(
             child: Text(
-                studyTimeMin.toString(),
+              studyTimeMin.toString(),
+              style: kTextStyle,
             ),
           )
 

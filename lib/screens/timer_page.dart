@@ -6,6 +6,7 @@ import 'package:app_team10/variable.dart';
 import 'dart:async';
 import 'package:app_team10/components/drawer_menu.dart';
 import 'package:app_team10/screens/calendar_page.dart';
+import 'package:app_team10/constants.dart';
 
 class TimerPage extends StatefulWidget {
   @override
@@ -53,26 +54,34 @@ class _TimerPageState extends State<TimerPage> {
         title: Text('Morning Study'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           //文章(例：「勉強開始時間まで」，「学習タイム」)
           //TODO: 文章切り替え
-          Text(text),
+          Expanded(
+            child: Text(
+              text,
+              style: kTextStyle,
+            ),
+          ),
 
           //タイマー
           //TODO: カウントダウン実装
           _timeStr(),
 
           //スタートボタン
-          Container(
-            child: Center(
-              child: StartButton(
-                onTap: (){
-                  //TODO: タイマースタート
-                  text = '学習タイム';
-                  _timer = startTimer();
-                },
-                buttonTitle: 'START',
-                colour: Colors.red,
+          Expanded(
+            child: Container(
+              child: Center(
+                child: StartButton(
+                  onTap: (){
+                    //TODO: タイマースタート
+                    text = '学習タイム';
+                    _timer = startTimer();
+                  },
+                  buttonTitle: 'START',
+                  colour: Colors.red,
+                ),
               ),
             ),
           ),
@@ -87,7 +96,7 @@ class _TimerPageState extends State<TimerPage> {
   Widget _timeStr() {
     return Text(
       timerString(_currentSeconds),
-      style: TextStyle(fontSize: 32, color: Colors.black),
+      style: TextStyle(fontSize: 120, color: Colors.black),
     );
   }
 

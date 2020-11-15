@@ -11,3 +11,12 @@ const kButtonTextStyle = TextStyle(
   fontSize: 25.0,
   fontWeight: FontWeight.bold,
 );
+
+const kTextStyle = TextStyle(
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kDrawerTextStyle = TextStyle(
+  fontSize: 25.0,
+);
