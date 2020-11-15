@@ -77,27 +77,36 @@ class _QuestionPageState extends State<QuestionPage> {
 
                         Row(
                           children: [
-                            TextField(
-                                enabled: true,
-                                // 入力数
-                                maxLength: 10,
-                                maxLengthEnforced: false,
-                                style: TextStyle(color: Colors.red),
-                                obscureText: false,
-                                maxLines:1 ,
-                                //パスワード
-                              decoration: InputDecoration(
-                                labelText: "数値を入力してください。",
-                                hintText: '例（114514）',
-                                icon: Icon(Icons.person_outline),
+                            Container(
+                              margin: EdgeInsets.fromLTRB(10, 100, 10, 100),
+                              height: 50,
+                              width: 150,
+                              color: Colors.white,
                             ),
-                            ),
+
                             CircleAvatar(
+                              child: TransitionButton(
+                                buttonTitle: 'PUSH',
 
 
-                                child: Text('push'),
-                                radius: 30.0,
-                                backgroundColor: Colors.yellow,
+
+
+
+                                onTap: (){
+                                  Navigator.push(
+                                    context,
+
+                                    MaterialPageRoute(
+                                      builder: (content) => TimerPage(),
+                                    ),
+                                  );
+                                },
+
+                              ),
+
+
+
+
                               ),
 
                           ],
