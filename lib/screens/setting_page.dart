@@ -25,6 +25,15 @@ class _SettingPageState extends State<SettingPage> {
     if(picked != null) setState(() => startTime = picked);
   }
 
+  final numberController = TextEditingController();
+
+  // ignore: missing_return
+  Function _setStudyTime(int studyTime){
+    setState(){
+      studyTimeMin = studyTime;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +56,23 @@ class _SettingPageState extends State<SettingPage> {
           RaisedButton(onPressed: () => _selectStartTime(context), child: Text('時間選択'),),
 
           Expanded(
-            child: Text('勉強時間'),
+            child: TextField(
+              controller: numberController,
+              decoration: new InputDecoration(labelText: "勉強時間"),
+              keyboardType: TextInputType.number,
+              onChanged: (Text){
+                setState(() {
+                  studyTimeMin = int.parse(Text);
+                });
+              },
+            ),
           ),
+
+          Expanded(
+            child: Text(
+                studyTimeMin.toString(),
+            ),
+          )
 
         ],
       ),
