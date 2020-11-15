@@ -47,6 +47,8 @@ class _TimerPageState extends State<TimerPage> {
 
   String text='勉強時間開始まで';
 
+  bool _isVisible = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,14 +75,20 @@ class _TimerPageState extends State<TimerPage> {
           Expanded(
             child: Container(
               child: Center(
-                child: StartButton(
-                  onTap: (){
-                    //TODO: タイマースタート
-                    text = '学習タイム';
-                    _timer = startTimer();
-                  },
-                  buttonTitle: 'START',
-                  colour: Colors.red,
+                child: Visibility(
+                  child: StartButton(
+                    onTap: (){
+                      //TODO: タイマースタート
+                      setState(() {
+                        text = '学習タイム';
+                        _timer = startTimer();
+                        _isVisible = false;
+                      });
+                    },
+                    buttonTitle: 'START',
+                    colour: Colors.red,
+                  ),
+                  visible: _isVisible,
                 ),
               ),
             ),

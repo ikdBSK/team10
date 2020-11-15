@@ -46,13 +46,17 @@ class _SettingPageState extends State<SettingPage> {
           Expanded(
             child: Center(
               child:Text(
-                "$awakeTime"
+                "$awakeTime",
+                style: kTimeTextStyle,
               ),
             ),
           ),
 
           RaisedButton(
-              onPressed: () => _selectAwakeTime(context), child: Text('時間選択'),
+            onPressed: () => _selectAwakeTime(context),
+              child: Text(
+                '時間選択',
+              ),
           ),
 
           Expanded(
@@ -64,12 +68,18 @@ class _SettingPageState extends State<SettingPage> {
           Expanded(
             child: Center(
               child:Text(
-                "$startTime"
+                "$startTime",
+                style: kTimeTextStyle,
               ),
             ),
           ),
 
-          RaisedButton(onPressed: () => _selectStartTime(context), child: Text('時間選択'),),
+          RaisedButton(
+            onPressed: () => _selectStartTime(context),
+              child: Text(
+                '時間選択',
+              ),
+          ),
 
           Expanded(
             child: Center(

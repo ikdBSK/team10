@@ -1,11 +1,8 @@
 //定数や，一定のフォーマットを保持するスクリプト
 import 'package:flutter/material.dart';
 
-
 const kButtonContainerHeight = 100.0;
-const kButtonContainerColour = Colors.yellow;
-
-
+const kButtonContainerColour = Colors.white;
 
 const kButtonTextStyle = TextStyle(
   fontSize: 25.0,
@@ -19,4 +16,8 @@ const kTextStyle = TextStyle(
 
 const kDrawerTextStyle = TextStyle(
   fontSize: 25.0,
+);
+
+const kTimeTextStyle = TextStyle(
+  fontSize: 22.0,
 );
