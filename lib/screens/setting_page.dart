@@ -1,5 +1,6 @@
 //設定画面
 import 'package:flutter/material.dart';
+import 'package:app_team10/variable.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -7,6 +8,26 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
+
+  TimeOfDay _awakeTime = new TimeOfDay.now();
+  TimeOfDay _startTime = new TimeOfDay.now();
+
+  Future<Null> _selectAwakeTime(BuildContext context) async {
+    final TimeOfDay picked = await showTimePicker(
+      context: context,
+      initialTime: _awakeTime,
+    );
+    if(picked != null) setState(() => _awakeTime = picked);
+  }
+
+  Future<Null> _selectStartTime(BuildContext context) async {
+    final TimeOfDay picked = await showTimePicker(
+      context: context,
+      initialTime: _startTime,
+    );
+    if(picked != null) setState(() => _startTime = picked);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,32 +40,19 @@ class _SettingPageState extends State<SettingPage> {
           Expanded(
             child: Text('起床時間'),
           ),
-          Expanded(
-            //alarm時間設定
-            child: Row(
-
-            ),
-          ),
+          Center(child:Text("$_awakeTime")),
+          RaisedButton(onPressed: () => _selectAwakeTime(context), child: Text('時間選択'),),
 
           Expanded(
             child: Text('勉強開始時間'),
           ),
-          Expanded(
-            //alarm時間設定
-            child: Row(
-
-            ),
-          ),
+          Center(child:Text("$_startTime")),
+          RaisedButton(onPressed: () => _selectStartTime(context), child: Text('時間選択'),),
 
           Expanded(
             child: Text('勉強時間'),
           ),
-          Expanded(
-            //勉強時間設定
-            child: Row(
 
-            ),
-          ),
         ],
       ),
     );
