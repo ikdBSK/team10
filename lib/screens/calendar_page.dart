@@ -35,7 +35,7 @@ class _CalendarPageState extends State<CalendarPage> {
                     fit: BoxFit.cover,
                   ),
                   Positioned(
-                    top: 260.0,
+                    top: size.height / 3.3,
                     left: 0.0,
                     width: size.width / 4,
                     height: size.width / 4,
@@ -43,9 +43,9 @@ class _CalendarPageState extends State<CalendarPage> {
                       "lib/images/Black Routine Transparent.png",
                       height: 50,
                     ),
-                  ),
+                  ), //スタンプカード
                   Positioned(
-                    top: 260.0,
+                    top: size.height / 3.3,
                     left: size.width / 4,
                     width: size.width / 4,
                     height: size.width / 4,
@@ -53,9 +53,9 @@ class _CalendarPageState extends State<CalendarPage> {
                       "lib/images/Black Routine Transparent.png",
                       height: 50,
                     ),
-                  ),
+                  ), //スタンプ
                   Positioned(
-                    top: 260.0,
+                    top: size.height / 3.3,
                     left: 2 * size.width / 4,
                     width: size.width / 4,
                     height: size.width / 4,
@@ -65,7 +65,7 @@ class _CalendarPageState extends State<CalendarPage> {
                     ),
                   ),
                   Positioned(
-                    top: 260.0,
+                    top: size.height / 3.3,
                     left: 3 * size.width / 4,
                     width: size.width / 4,
                     height: size.width / 4,
@@ -75,7 +75,7 @@ class _CalendarPageState extends State<CalendarPage> {
                     ),
                   ),
                   Positioned(
-                    top: 260.0 + size.width / 4,
+                    top: size.height / 3.5 + size.width / 4,
                     left: 0.0,
                     width: size.width / 4,
                     height: size.width / 4,
@@ -85,25 +85,30 @@ class _CalendarPageState extends State<CalendarPage> {
                       duration: Duration(seconds: 0),
                       crossFadeState: _crossFadeState,
                     ),
-                  ),//スタンプを押せる
+                  ), //スタンプを押せる
                   Positioned(
-                    top: 260.0 + size.width / 4,
-                    left: 0.0,
-                    width: size.width/5,
-                    height: size.width/5,
+                    top: size.height / 3.5 + 30 + size.width / 4,
+                    left: 30.0,
+                    width: 40,
+                    height: 40,
                     child: RaisedButton(
-                      //child: const Text('Btn'),
                       color: Colors.white.withOpacity(0.0),
+                      child: const Text('.'),
                       onPressed: () {
                         setState(() {
                           _crossFadeState = CrossFadeState.showSecond;
                         });
                       },
                     ),
-                  ),//スタンプするボタン
+                  ), //スタンプするボタン
                 ],
               ),
             ),
+          ),
+         Container(
+           height: 37,
+            width: double.infinity,
+            color: Colors.cyan[700],
           ),
         ],
       ),
