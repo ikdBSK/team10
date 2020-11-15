@@ -13,6 +13,7 @@ class StartButton extends StatelessWidget {
     return RaisedButton(
       child: Text(
         buttonTitle,
+        style: TextStyle(fontSize: 60),
       ),
       color: colour,
       shape: StadiumBorder(),

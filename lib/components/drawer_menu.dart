@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:app_team10/screens/setting_page.dart';
 import 'package:app_team10/screens/timer_page.dart';
 import 'package:app_team10/screens/calendar_page.dart';
+import 'package:app_team10/constants.dart';
 
 class DrawerMenu extends StatelessWidget {
   @override
@@ -12,7 +13,7 @@ class DrawerMenu extends StatelessWidget {
           child: Text(
             'Morning Study',
             style: TextStyle(
-              fontSize: 24,
+              fontSize: 40,
               color: Colors.white,
             ),
           ),
@@ -21,7 +22,10 @@ class DrawerMenu extends StatelessWidget {
           ),
         ),
         ListTile(
-          title: Text('Setting'),
+          title: Text(
+            'Setting',
+            style: kDrawerTextStyle,
+          ),
           onTap: (){
             Navigator.push(
               context,
@@ -32,7 +36,10 @@ class DrawerMenu extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text('Timer'),
+          title: Text(
+            'Timer',
+            style: kDrawerTextStyle,
+          ),
           onTap: (){
             Navigator.push(
               context,
@@ -43,7 +50,10 @@ class DrawerMenu extends StatelessWidget {
           },
         ),
         ListTile(
-          title: Text('Calendar'),
+          title: Text(
+            'Calendar',
+            style: kDrawerTextStyle,
+          ),
           onTap: (){
             Navigator.push(
               context,
