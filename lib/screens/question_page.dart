@@ -38,7 +38,7 @@ class _QuestionPageState extends State<QuestionPage> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (content) => CalendarPage(),
+                  builder: (content) => TimerPage(),
                 ),
               );
             },
