@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'timer_page.dart';
 import 'package:app_team10/components/transition_button.dart';
 import 'package:app_team10/widget/clock_widget.dart';
+import 'package:app_team10/components/drawer_menu.dart';
 
 class QuestionPage extends StatefulWidget {
   @override
@@ -43,6 +44,9 @@ class _QuestionPageState extends State<QuestionPage> {
             },
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: DrawerMenu(),
       ),
     );
   }

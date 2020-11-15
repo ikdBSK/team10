@@ -9,23 +9,20 @@ class SettingPage extends StatefulWidget {
 
 class _SettingPageState extends State<SettingPage> {
 
-  TimeOfDay _awakeTime = new TimeOfDay.now();
-  TimeOfDay _startTime = new TimeOfDay.now();
-
   Future<Null> _selectAwakeTime(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
       context: context,
-      initialTime: _awakeTime,
+      initialTime: awakeTime,
     );
-    if(picked != null) setState(() => _awakeTime = picked);
+    if(picked != null) setState(() => awakeTime = picked);
   }
 
   Future<Null> _selectStartTime(BuildContext context) async {
     final TimeOfDay picked = await showTimePicker(
       context: context,
-      initialTime: _startTime,
+      initialTime: startTime,
     );
-    if(picked != null) setState(() => _startTime = picked);
+    if(picked != null) setState(() => startTime = picked);
   }
 
   @override
@@ -40,13 +37,13 @@ class _SettingPageState extends State<SettingPage> {
           Expanded(
             child: Text('起床時間'),
           ),
-          Center(child:Text("$_awakeTime")),
+          Center(child:Text("$awakeTime")),
           RaisedButton(onPressed: () => _selectAwakeTime(context), child: Text('時間選択'),),
 
           Expanded(
             child: Text('勉強開始時間'),
           ),
-          Center(child:Text("$_startTime")),
+          Center(child:Text("$startTime")),
           RaisedButton(onPressed: () => _selectStartTime(context), child: Text('時間選択'),),
 
           Expanded(
