@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:app_team10/constants.dart';
-import 'package:app_team10/screens/timer_page.dart';
 
 class TransitionButton extends StatelessWidget {
 
