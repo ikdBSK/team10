@@ -1,5 +1,6 @@
 //設定画面
 import 'package:flutter/material.dart';
+import 'package:app_team10/variable.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -7,6 +8,32 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
+
+  Future<Null> _selectAwakeTime(BuildContext context) async {
+    final TimeOfDay picked = await showTimePicker(
+      context: context,
+      initialTime: awakeTime,
+    );
+    if(picked != null) setState(() => awakeTime = picked);
+  }
+
+  Future<Null> _selectStartTime(BuildContext context) async {
+    final TimeOfDay picked = await showTimePicker(
+      context: context,
+      initialTime: startTime,
+    );
+    if(picked != null) setState(() => startTime = picked);
+  }
+
+  final numberController = TextEditingController();
+
+  // ignore: missing_return
+  Function _setStudyTime(int studyTime){
+    setState(){
+      studyTimeMin = studyTime;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,32 +46,34 @@ class _SettingPageState extends State<SettingPage> {
           Expanded(
             child: Text('起床時間'),
           ),
-          Expanded(
-            //alarm時間設定
-            child: Row(
-
-            ),
-          ),
+          Center(child:Text("$awakeTime")),
+          RaisedButton(onPressed: () => _selectAwakeTime(context), child: Text('時間選択'),),
 
           Expanded(
             child: Text('勉強開始時間'),
           ),
-          Expanded(
-            //alarm時間設定
-            child: Row(
+          Center(child:Text("$startTime")),
+          RaisedButton(onPressed: () => _selectStartTime(context), child: Text('時間選択'),),
 
+          Expanded(
+            child: TextField(
+              controller: numberController,
+              decoration: new InputDecoration(labelText: "勉強時間"),
+              keyboardType: TextInputType.number,
+              onChanged: (Text){
+                setState(() {
+                  studyTimeMin = int.parse(Text);
+                });
+              },
             ),
           ),
 
           Expanded(
-            child: Text('勉強時間'),
-          ),
-          Expanded(
-            //勉強時間設定
-            child: Row(
-
+            child: Text(
+                studyTimeMin.toString(),
             ),
-          ),
+          )
+
         ],
       ),
     );

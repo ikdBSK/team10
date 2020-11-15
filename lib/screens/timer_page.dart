@@ -5,6 +5,7 @@ import 'package:app_team10/components/start_button.dart';
 import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:app_team10/variable.dart';
 import 'dart:async';
+import 'package:app_team10/components/drawer_menu.dart';
 
 class TimerPage extends StatefulWidget {
   @override
@@ -47,6 +48,9 @@ class _TimerPageState extends State<TimerPage> {
             ),
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: DrawerMenu(),
       ),
     );
   }
