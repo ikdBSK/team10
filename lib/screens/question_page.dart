@@ -37,20 +37,15 @@ class _QuestionPageState extends State<QuestionPage> {
 
                 //現在時刻表示
 
-                child: Center(
+                  child: Center(
                     child: ClockWidget(),
-      ),
-    ),
-
-
+                  ),
                 ),
-
-
+              ),
           Expanded(
                 flex: 3,
                 child: Container(
                   color: Colors.white,
-
                 ),
               ),
             ],
@@ -59,7 +54,6 @@ class _QuestionPageState extends State<QuestionPage> {
             height: 30,
           ),
           Padding(
-
               padding: EdgeInsets.fromLTRB(40, 150, 40, 10),
             child: Card(
               color: Colors.teal,
@@ -67,56 +61,64 @@ class _QuestionPageState extends State<QuestionPage> {
                 children: [
                   Column(
                     children: [
-
-
                       Container(
+                        child: Text('18×18='
+                          ,style: TextStyle(
 
-                        padding: EdgeInsets.fromLTRB(10, 100, 10, 100),
-                        height: 180,
-                        width: 250,
-                        color: Colors.white,
-                        child: Text('18×18=',
+                              fontSize: 60
+
+                          ),
+
                         ),
-
-                        margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
-                      ),
-                      Row(
-
-
-                        children: [
-
-
-                          Container(
-                            margin: EdgeInsets.fromLTRB(10, 100, 10, 100),
-                            height: 50,
-                            width: 150,
-                            color: Colors.white,
-                          ),
-                          CircleAvatar(
-
-
-                            child: Text('push'),
-                            radius: 30.0,
-                            backgroundColor: Colors.yellow,
-                          ),
-
-                        ],
-                        mainAxisAlignment: MainAxisAlignment.end,
-
+                        margin: EdgeInsets.symmetric(vertical: 100,horizontal: 0),
                       ),
 
+
+
+                        Row(
+                          children: [
+                            TextField(
+                                enabled: true,
+                                // 入力数
+                                maxLength: 10,
+                                maxLengthEnforced: false,
+                                style: TextStyle(color: Colors.red),
+                                obscureText: false,
+                                maxLines:1 ,
+                                //パスワード
+                              decoration: InputDecoration(
+                                labelText: "数値を入力してください。",
+                                hintText: '例（114514）',
+                                icon: Icon(Icons.person_outline),
+                            ),
+                            ),
+                            CircleAvatar(
+
+
+                                child: Text('push'),
+                                radius: 30.0,
+                                backgroundColor: Colors.yellow,
+                              ),
+
+                          ],
+                            mainAxisAlignment: MainAxisAlignment.end,
+
+                        ),
                     ],
                   ),
 
                 ],
-
-
-
               ),
+
+
+
+
+
             ),
-
-
           ),
+
+
+
         ],
       ),
       drawer: Drawer(
