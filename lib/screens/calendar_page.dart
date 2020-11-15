@@ -100,7 +100,7 @@ class _CalendarPageState extends State<CalendarPage> {
                         });
                       },
                     ),
-                  ),//ボタン
+                  ),//スタンプするボタン
                 ],
               ),
             ),
